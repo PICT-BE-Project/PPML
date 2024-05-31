@@ -35,7 +35,7 @@ const handleLoginSubmit = async (event) => {
         setEmail('');
         setPassword('');
         secretKey('');
-        navigate('/');
+        navigate('/owner');
         Cookies.set('user', encodeURIComponent(JSON.stringify(user.data.users[0])), { expires: 7 }); // Cookie expires in 7 days
         return;
       } catch (error) {
@@ -58,7 +58,7 @@ const handleLoginSubmit = async (event) => {
       const user = await axios.get(`http://localhost:3839/api/get/${email}`);
       setEmail('');
       setPassword('');
-      navigate('/');
+      navigate('/user');
       Cookies.set('user', encodeURIComponent(JSON.stringify(user.data.users[0])), { expires: 7 });  // Cookie expires in 7 days
     } catch (error) {
       if (error.response && error.response.data) {

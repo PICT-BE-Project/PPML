@@ -8,7 +8,7 @@ const Home = () => {
       <div className='flex flex-col md:flex-row justify-evenly items-center w-full md:p-6 p-2 m-auto'>
         <div className='flex flex-col w-full text-center md:w-1/2 '>
           <h1 className='text-3xl md:text-4xl font-medium typing'>Welcome to Encryptix</h1>
-          <h2 className='mt-3 text-lg md:text-xl font-normal'>Revolutionize Healthcare Data Security</h2>
+          <h2 className='mt-3 text-lg md:text-xl font-normal'>Revolutionize Data Security in ML</h2>
           <h3 className='mt-3 text-xl md:text-lg font-normal'>Secure, Encrypt, and Analyze with Advanced Algorithms</h3>
         </div>
         <div className='flex w-full md:w-1/2 items-center justify-center'>
