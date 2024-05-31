@@ -5,7 +5,8 @@ const User = () => {
     const [file, setFile] = useState(null);
     const [response, setResponse] = useState(null);
     const [error, setError] = useState(null);
-  
+    const [loading, setLoading] = useState(false);
+
     const handleFileChange = (event) => {
       setFile(event.target.files[0]);
     };
@@ -15,7 +16,7 @@ const User = () => {
         setError('Please select a file first');
         return;
       }
-      
+      setLoading(true)
   
       const formData = new FormData();
       formData.append('file', file);
@@ -30,11 +31,15 @@ const User = () => {
         }
   
         const data = await res.json();
-        setResponse(data['message']);
+        console.log("Final data = " ,data)
+        setResponse("Final class label = " , data.label);
         console.log('Success:', data);
       } catch (error) {
         setError(error);
         console.error('Error:', error);
+      }
+      finally{
+        setLoading(false)
       }
     };
 
@@ -85,6 +90,7 @@ const User = () => {
     <div className="md:flex flex justify-center md:items-center mt-10">
       <div className="m-auto">
         <button 
+        disabled={loading}
         onClick={handleQuery}
         className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-medium py-2 px-4  rounded" 
         type="button">
